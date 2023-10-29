@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel #for Serialization
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -24,7 +24,7 @@ my_d = {
     1: {"name": "ashish",
         "roll": 1},
     2: {"name": "Shubha",
-        "roll": 2},
+        "roll": 2}, 
     3: {"name": "Bella",
         "roll": 3},
     4: {"name": "Tim",
@@ -43,7 +43,7 @@ def create_item(item_id, stu: stu):
     return my_d[item_id]
 
 
-@app.get("read/{item_id}")
+@app.get("/read/{item_id}")
 def read_item(item_id):
     item_id = int(item_id)
     return my_d[item_id]
